@@ -1,0 +1,37 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+
+<body>
+  {% block body %}
+  
+  <div id="main" class="row row-main">
+	<div class="bradscrumb">
+        <ul class="list_03">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'productpage' %}">Products</a></li>
+            <li><a href="{% url 'categoryview' categoryvalue.id %}" class="active">{{ categoryvalue.CategoryName }}</a></li>
+        </ul>
+        <div class="clear"></div>
+	</div>
+    <div class="our_product">
+       
+        <h2> <span>{{ categoryvalue.CategoryName }}</span></h2>        
+        
+        <div class="pro_thumb">
+            <ul>
+                {% for subcat in subcat %}
+                <li style="width: 184px ;"><a href="{% url 'productlist' subcat.id %}"><img src="{{ subcat.Image.url }}"  width="184 px" height="115 px" alt=""><b>{{ subcat.SubCategoryName }}</a></li>
+                {% endfor %}
+                </ul>
+            <div class="clear"></div>
+        </div>
+   	</div>
+  {% endblock %}      
+</body>
+</html>

@@ -1,0 +1,303 @@
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Welcome to Barry Interior</title>
+<link rel="icon" type="image/x-icon" href="{% static 'assets/images/favicon.png' %}">
+<link href="{% static 'assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+
+<link href="{% static 'assets/css/content.css' %}" rel="Stylesheet" type="text/css" media="screen,projection,print" />
+<link href="{% static 'assets/css/layout.css' %}" rel="Stylesheet" type="text/css" media="screen,projection" />
+
+<!-- Dropdown Menu -->
+<link href="{% static 'assets/css/ddsmoothmenu.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'assets/js/jquery.min.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/ddsmoothmenu.js' %}" type="text/javascript"></script>
+<!-- Dropdown Menu -->
+
+<script src="{% static 'assets/js/jquery.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/tatra.ScrollMotive.js' %}" type="text/javascript"></script>
+<script src="{% static 'assets/js/main.js' %}" type="text/javascript"></script>
+
+<!--[if lt IE 7.]>
+<link href="css/ie6.css" media="screen" rel="Stylesheet" type="text/css" />
+<![endif]-->
+
+<!-- Light Box -->
+<link href="{% static 'assets/css/jquery.css' %}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{% static 'assets/js/lightbox_jquery_002.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets/js/lightbox_jquery.js' %}"></script>
+<script language="javascript" src="{% static 'assets/js/lightbox_comman.js' %}" type="text/javascript"></script>
+<!-- Light Box -->
+
+<!-- Product Slider -->
+<link href="{% static 'assets/css/jquery.jcarousel.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'assets/css/skin.css' %}" rel="stylesheet" type="text/css" />
+<script src="{% static 'assets/js/jquery.jcarousel.pack.js' %}" type="text/javascript"></script>
+<!-- Product Slider -->
+
+<script src="{% static 'assets/js/general.js' %}" type="text/javascript"></script>
+
+<!-- Newsletter -->
+<script type="text/javascript" >
+{
+  function valEmail()
+  {
+  var uname=document.form;
+	//var uname=documenr.getElementID("txtname");
+	var alpha=/^[a-zA-Z ]+$/;	
+	var num=/^[0-9  -]+$/;
+  if(uname.txtEmail.value=="")
+	{
+	   alert("Email Name is Required");
+		document.form.txtEmail.focus();
+		return (false);
+	}
+	 var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+  
+   if(reg.test(uname.txtEmail.value) == false) {
+      alert('Invalid Email Address');
+	  document.form.txtEmail.focus();
+      return false;
+   }
+  }
+}
+</script>
+<!-- Newsletter -->
+<script type="text/javascript">
+  
+
+function refreshCaptcha()
+	{
+		var img = document.images['captchaimg'];
+		img.src = img.src.substring(0,img.src.lastIndexOf("?"))+"?rand="+Math.random()*1000;
+	}
+function clickclear(thisfield, defaulttext) {
+if (thisfield.value == defaulttext) {
+thisfield.value = "";
+}
+}
+
+function clickrecall(thisfield, defaulttext) {
+if (thisfield.value == "") {
+thisfield.value = defaulttext;
+}
+}
+function isNum(evt)
+
+  {
+
+	var nbr;
+
+	var nbr = (window.event) ? event.keyCode : evt.which;
+
+	if ((nbr >= 48 && nbr <= 57) || nbr == 08) 
+
+		return true;
+
+	else
+
+	    return false;
+
+  }
+
+function valForm()
+{
+	var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	var fname=document.form1;
+	if(fname.txtName.value=="")
+	{
+		alert("Enter Your Name");
+		fname.txtName.focus();
+		return false;
+	}
+	if(fname.txtAddress.value=="")
+	{
+		alert("Address is Required");
+		fname.txtAddress.focus();
+		return false;
+	}
+	if(fname.txtCity.value=="")
+	{
+		alert("City Name is Required");
+		fname.txtCity.focus();
+		return false;
+	}
+	if(fname.txtState.value=="")
+	{
+		alert("State Name is Required");
+		fname.txtState.focus();
+		return false;
+	}
+	if (document.form1.txtCountry.selectedIndex == 0)
+    {
+      alert("Please select one of the \"Country\" options.");
+      document.form1.txtCountry.focus();
+      return (false);
+    }
+	if(fname.txtMobile.value=="")
+	{
+		alert("Mobile No is Required");
+		fname.txtMobile.focus();
+		return false;
+	}
+	else if(fname.txteMailid.value=="")
+	{
+		alert("Email Address is Required");
+		fname.txteMailid.focus();
+		return false;
+	}
+	else if(reg.test(fname.txteMailid.value) == false) {
+		  alert('Invalid Email Address');
+		  fname.txteMailid.focus();
+		  return false;
+	}
+	else if(fname.txtComments.value=="")
+	{
+		alert("Comments is Required");
+		fname.txtComments.focus();
+		return false;
+	}
+	else if(fname.txtcaptcha.value=="")
+	{
+		alert("Enter Code");
+		fname.txtcaptcha.focus();
+		return false;
+	}
+	
+	return true;
+}
+</script>
+</head>
+
+<body>
+<div class="lsize">
+    <!-- Start: Slider Part -->
+    <div id="logo_part">
+    <div class="fl logo"><a href="{% url 'index' %}"><img src="{% static 'assets/images/logo.png' %}" alt="" /></a></div>
+    <div id="menu"><div id="smoothmenu1" class="ddsmoothmenu">
+            <ul>
+              
+                <li><a href="{% url 'index' %}" class="active">Home</a></li>
+                <li><a href="{% url 'about' %}" class="">Who we are</a></li>
+                <li><a href="{% url 'productpage' %}" class="">Products</a>
+                   
+                <li><a href="{% url 'brochurelist' %}" class="">Download</a></li>
+                <li><a href="{% url 'inquiry' %}" class="">Inquiry</a></li>
+                <li><a href="{% url 'contact' %}" class="">Contact Us</a></li>
+            </ul>
+            <div class="clear"></div>
+        </div></div>
+    <div class="clear"></div>
+</div>    <!-- End: Slider Part -->
+</div>
+<div id="wrap">
+    <!-- Start: Slider Part -->
+    <div class="slider">
+  <div id="header">
+      <div class="slides">
+        <div id="header-slide01" class="slide" style="background-image: url(../static/assets/images/slide_01.jpg);"></div>
+        <div id="header-slide02" class="slide" style="background-image: url(../static/assets/images/slide_02.jpg);"></div>
+        <div id="header-slide03" class="slide" style="background-image: url(../static/assets/images/slide_03.jpg);"></div>
+        <div id="header-slide04" class="slide" style="background-image: url(../static/assets/images/slide_04.jpg);"></div>
+        <div id="header-slide05" class="slide" style="background-image: url(../static/assets/images/slide_05.jpg);"></div>
+      </div>
+      <div id="header-wrap"></div>
+  </div>
+  <div id="intro" class="row row-main">
+    <div class="slide" id="intro-slide01">
+      <h2>CRAFT and INNOVATION<br />are the ENCOURAGEMENTS</h2>
+        <p>Fashion gets close to painting, design to art, interiors to graphic; style mixing.<br />In fashion always is present the "work in progress" that gives solutions and tendencies.</p><p><a href="{% url 'productpage' %}" class="inline-btn btn-trans">View More Detail</a></p>
+    </div>
+    <div class="slide" id="intro-slide02">
+      <h2>REFLECTING vibrant<br />individuality EXPRESSING<br />colorful sensuality</h2>
+        <p>Fashion gets close to painting, design to art, interiors to graphic; style mixing.<br />In fashion always is present the "work in progress" that gives solutions and tendencies.</p><p><a href="{% url 'productpage' %}" class="inline-btn btn-trans">View More Detail</a></p>
+    </div>
+    <div class="slide" id="intro-slide03">
+      <h2>EXPECT the <br />EXTRAORDINARY</h2>
+        <p>Fashion gets close to painting, design to art, interiors to graphic; style mixing.<br />In fashion always is present the "work in progress" that gives solutions and tendencies.</p><p><a href="{% url 'productpage' %}" class="inline-btn btn-trans">View More Detail</a></p>
+    </div>
+    <div class="slide" id="intro-slide04">
+      <h2>to EXPLORE<br />DIFFERENT aesthetic<br />choices</h2>
+        <p>Fashion gets close to painting, design to art, interiors to graphic; style mixing.<br />In fashion always is present the "work in progress" that gives solutions and tendencies.</p><p><a href="{% url 'productpage' %}" class="inline-btn btn-trans">View More Detail</a></p>
+    </div>
+    <div class="slide" id="intro-slide05">
+      <h2>to EXPLORE<br />DIFFERENT aesthetic<br />choices</h2>
+        <p>Fashion gets close to painting, design to art, interiors to graphic; style mixing.<br />In fashion always is present the "work in progress" that gives solutions and tendencies.</p><p><a href="{% url 'productpage' %}" class="inline-btn btn-trans">View More Detail</a></p>
+    </div>
+  </div>
+</div>    
+
+{% block body %}
+{% endblock %}
+
+
+
+
+
+        <!-- Start: Footer Bottom Part -->
+        <div class="footer_detail">
+            <div class="contact">
+              <h2>Contact Us</h2>
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+                    <tr>
+                      <td colspan="3" valign="top"><b>Barry Creation</b><br />
+                  Rasul Para, Opp. Old Toll Tax, <br />
+                  NH-8B, Rajkot, Gujarat (INDIA)</td>
+                    </tr>
+                    <tr>
+                      <td width="50" valign="top"><b>Mobile</b></td>
+                      <td width="10" valign="top"><b>:</b></td>
+                      <td valign="top">+91 97270 55270</td>
+                    </tr>
+                    <tr>
+                      <td width="50" valign="top"><b>Email</b></td>
+                      <td width="10" valign="top"><b>:</b></td>
+                      <td valign="top"><a href="mailto:barryinteriorproducts@gmail.com">barryinteriorproducts@gmail.com</a></td>
+                    </tr>
+                    <tr>
+                      <td width="50" valign="top"><b>Web</b></td>
+                      <td width="10" valign="top"><b>:</b></td>
+                      <td valign="top"><a href="http://www.barryinterior.com/" target="_blank">www.barryinterior.com</a></td>
+                    </tr>
+                  </table>
+            </div>
+              <div class="fl">
+                  <div class="folow_us">
+                      <h2>Follow Us</h2>
+                      <ul>
+                          <li><a href="http://www.facebook.com/BarryCreations" target="_blank"><img src="{% static 'assets/images/facebook.gif' %}" alt="" /></a></li>
+                          <li><a href="#"><img src="{% static 'assets/images/twitter.gif' %}" alt="" /></a></li>
+                      </ul>
+                      <div class="clear"></div>
+                  </div>
+                  <div class="download">
+                    <h2>Download</h2>
+                      <div class="pad_l_01"><a href="{% url 'brochurelist' %}" target="_self"><img src="{% static 'assets/images/download.jpg' %}" alt="" align="middle" class="pad_r_01" /><b>Download Brochure</b></a></div>
+                  </div>
+              </div>
+              <div class="subscribe fr">
+              <h3>Subscribe For Newsletter</h3>
+              To receive our Newsletter please subscribe here and keep updated <br />with latest products. 
+              <form name="form" action="{% url 'base' %}" method="post" onsubmit="return valEmail(this)">
+                {% csrf_token %}
+              <input name="txtEmail" id="txtEmail" type="text" class="input" placeholder="Sign Up for Newsletter" />
+              <input type="submit" name="button" id="button" value="" class="subscribe_btn" />
+              </form>
+          </div>
+              <div class="clear"></div>
+          </div>        <!-- End: Footer Bottom Part -->
+              </div>
+          </div>
+          <!-- Start: Footer Part -->
+          <div id="footer">
+              <div class="lsize">
+                  <div class="footer_nav"><a href="{% url 'index' %}">Home</a><a href="{% url 'about' %}">Who we are</a><a href="{% url 'productpage' %}">Products</a><a href="{% url 'brochurelist' %}">Download</a><a href="{% url 'inquiry' %}">Inquiry</a><a href="{% url 'contact' %}">Contact Us</a></div>
+                  <div class="fl">&copy; Copyright 2022 <b>Barry Interior</b>. All rights reserved.</div>
+                  <div class="clear"></div>
+              </div>
+          </div><!-- End: Footer Part -->
+          </body>
+          </html>
+          

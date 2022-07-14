@@ -1,0 +1,52 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+
+<body>
+  {% block body %}
+  <div id="main" class="row row-main">
+	<div class="bradscrumb">
+        <ul class="list_03">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'productpage' %}">Products</a></li>
+            <li><a href="{% url 'categoryview' cat.id %}">{{ detail.category }}</a></li>
+            <li><a href="{% url 'productlist' c.id %}">{{ detail.subcategory }}</a></li>
+            <li><a href="{% url 'productdetail' detail.id %}" class="active">Model : {{ detail.ModelNo }}</a></li>
+        </ul>
+        <div class="clear"></div>
+	</div>
+    <div class="our_product">
+        <h2>Model : <span>{{ detail.ModelNo }}</span></h2>
+     
+        <div class="pad_04">
+            <div class="img"><img  src="{{ detail.ProductImage.url }}" width="540 px" height="400 px" alt=""><div class="code"><b><b>Model : {{ detail.ModelNo }}</b> </div></div>
+            <div class="detail">
+                <ul class="list_01">
+                    {% for f in f %}
+                    <li><a href="{{ f.FinishImage.url }}"   class="zoom2" rel="group1" title="{{ f.ProductModelNo }} : {{ f.FinisType }}"><img src="{{ f.FinishImage.url }}" width="112 px" height="76 px" alt=""><b>{{ f.FinisType }}</b></a></li>
+                    {% endfor %} 
+                    <div class="clear"></div>
+                <div class="send_inquiry"><a href="{% url 'inquiry' %}">Send Inquiry</a></div>
+            </div>
+            <div class="clear"></div>
+			<div id="pro_slider">
+    <h1>Related <span>Products</span></h1>
+    <div class=" jcarousel-skin-tango-01"><div class="jcarousel-container jcarousel-container-horizontal" style="display: block;"><div class="jcarousel-prev jcarousel-prev-horizontal" disabled="false" style="display: block;"><span style="color: white;font-size: 20px;padding-left: 3px;"><</span></div><div class="jcarousel-next jcarousel-next-horizontal" disabled="false" style="display: block;"><span style="color: white;font-size: 20px;padding-left: 3px;">></span></div><div class="jcarousel-clip jcarousel-clip-horizontal"><ul id="mycarousel_01" class="jcarousel-list jcarousel-list-horizontal">
+            {% for r in related %}
+            
+        <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style=""><a href="{% url 'productdetail' r.id %}"><img src="{{ r.ProductImage.url }}" width="184 px" height="115 px" alt=""><b>Model : {{ r.ModelNo }}</b></a></li>
+            {% endfor %}
+    </ul></div></div></div>
+    <div class="clear"></div>
+</div>        </div>
+    </div>
+
+
+  {% endblock %}      
+</body>
+</html>

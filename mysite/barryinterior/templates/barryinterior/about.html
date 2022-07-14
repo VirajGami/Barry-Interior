@@ -1,0 +1,62 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+
+<body>
+  {% block body %}
+   
+
+  <div id="main" class="row row-main">
+	<div class="bradscrumb">
+        <ul class="list_03">
+          <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'about' %}" class="active">Who We Are</a></li>
+        </ul>
+        <div class="clear"></div>
+	</div>
+    <div class="our_product">
+   	    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+       	  <div class="who_we_are">
+                	<h2>Who <span>We Are</span></h2>
+                    <div class="pad_05">
+                    <b>Barry Interior</b> is an endeavour of a group of farsighted entrepreneurs. Backed with sound knowledge and rich experience of the architectural hardware industry, we have established Barry Creations to set new standards of quality in the industry.
+                    <br /><br />
+                    Established in the year 2011, we have chalked out longs term plans and goals for the company. Currently we are focusing on the segments of curtain brackets, curtain  support and tiebacks as  well as  related accessories.
+                    &nbsp; With a penchant for precision and an eye for aesthetics, we have already set the market ablaze with our offerings.<br /><br />
+                    <h3>Our <span>Culture</span></h3>
+                    Barry Creations began with a corporate culture that is committed to innovation, creativity, trust and respect for all. A culture that encourages both individual and professional growth. A culture that is guided by five core values.<br /><br />
+                    <h3>Our Core <span>Purpose</span></h3>
+                    Providing the road map to reach our goals is a core purpose that is powerful,&nbsp; compelling and virtually limitless in scope. &nbsp; By pursuing our core purpose, our leadership inspires others - our employees, dealers and customers - to improve, do their best and be successful<br /><br />
+                    <img src="{% static 'assets/images/who_we_are.jpg' %}" alt="" class="bor_02 pad_t01" /><br /><br />
+                    <b>Integrity :</b> Delivering and Expecting the highest ethical conduct.<br />
+                    <b>Service :</b> Exceeding expectations by paying attention to details.<br />
+                    <b>Innovation : </b> Identifying and Seizing opportunities through creative solutions.<br />
+                    <b>Teamwork :</b> Supporting each other to enhance our collective strengths.<br />
+                    <b>Excellence :</b> Passionately dedicated to being the best.<br />
+                    </div>
+				</div>
+            </td>
+            <td width="290" valign="top" class="pro_list bor_03 last">
+            	<div class="fr pro_list">
+                	<h2>Our <span>Product</span></h2>
+                        <ul class="list_02">
+                            {% for category in cat %}
+                        	<li><a href="{% url 'categoryview' category.id %}">{{ category.CategoryName }}</a></li>
+                        	{% endfor %}
+                		</ul>
+            	</div>
+            </td>
+          </tr>
+        </table>
+   	</div>
+
+  {% endblock %}      
+</body>
+</html>

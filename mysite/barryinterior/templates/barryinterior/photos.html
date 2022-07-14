@@ -1,0 +1,51 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+ 
+<body>
+  {% block body %}
+  <div id="main" class="row row-main">
+	<div class="bradscrumb">
+        <ul class="list_03">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'photogallery' %}" class="active">Photo Gallery</a></li>
+        </ul>
+        <div class="clear"></div>
+	</div>
+    <div class="our_product">
+   	    <div class="table-wrap"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr>
+            <td valign="top" class="first">
+       	  <div class="who_we_are">
+                	<h2>Photo <span>Gallery</span></h2>
+                    <div class="pad_04">
+	                    <ul class="photo-gallery">
+                            {% for p in photos %}
+                            <li><a href="{{ p.image.url }}" class="zoom2" rel="group1" title="{{ p.name }}"><img src="{{ p.image.url }}" width="158 px" height="111 px" alt="" class="bor_01"><b>{{ p.name }}</b></a></li>
+                            {% endfor %}    
+                        </ul>
+                        <div class="clear"></div>
+                    </div>
+				</div>
+            </td>
+            <td width="290" valign="top" class="pro_list bor_03 last">
+            	<div class="fr pro_list">
+                	<h2>Our <span>Product</span></h2>
+                        <ul class="list_02">
+                            {% for category in cat %}
+                        	<li><a href="{% url 'categoryview' category.id %}">{{ category.CategoryName }}</a></li>
+                        	{% endfor %}
+                		</ul>
+            	</div>
+            </td>
+          </tr>
+        </tbody></table><span class="cor cor-tl"></span><span class="cor cor-tr"></span><span class="cor cor-bl"></span><span class="cor cor-br"></span></div>
+   	</div>
+  {% endblock %}      
+</body>
+</html>

@@ -1,0 +1,210 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+ 
+<body>
+  {% block body %}
+  <div id="main" class="row row-main">
+	<div class="bradscrumb">
+        <ul class="list_03">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="inquiry.php" class="active">Inquiry</a></li>
+        </ul>
+        <div class="clear"></div>
+	</div>
+  
+    <div class="our_product">
+   	    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td valign="top">
+       	  <div class="who_we_are">
+                	<h2>Inquiry</h2>
+       
+                    <div class="pad_05">
+                    <form id="form1" name="form1" class="form" action="{% url 'inquirysubmit' %}" method="post" onSubmit="return valForm()">
+                        
+           
+                    <span class="red">(*</span>) Compulsory fields
+                    <br>
+                    {% include 'barryinterior/error.html' %}
+
+                    {% csrf_token %}
+                        
+                          {% if form.non_field_errors %}
+                     <ul class='form-errors'>
+                       {% for error in form.non_field_errors %}
+                         <li>{{ error }}</li>
+                       {% endfor %}
+                     </ul>
+                   {% endif %}
+                    <table width="100%" border="0" cellspacing="0" cellpadding="4">
+              		<tr>
+                        <td width="150"><b>Name <span class="red">*</span></b></td>
+                        <td width="10"><b>:</b></td>
+                		<td><input name="txtName" type="text" class="triple-length" id="txtName" /></td>
+                      </tr>
+                      <tr>
+                        <td><b>Company</b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txtCompany" type="text" class="triple-length" id="txtCompany" /></td>
+                      </tr>
+                      <tr>
+                        <td><b>Designation</b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txtDesignation" type="text" class="triple-length" id="txtDesignation" /></td>
+                      </tr>
+                      <tr>
+                        <td valign="top"><b>Address  <span class="red">*</span></b></td>
+                        <td width="10" valign="top"><b>:</b></td>
+                        <td valign="top"><textarea name="txtAddress" rows="4" cols="2" class="triple-length" id="txtAddress"></textarea></td>
+                      </tr>
+                      <tr>
+                        <td><b>City  <span class="red">*</span></b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txtCity" type="text" class="triple-length" id="txtCity" /></td>
+                      </tr>
+                      <tr>
+                        <td><b>Pincode</b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txtPincode" type="text" class="triple-length" id="txtPincode" size="12" maxlength="12" /></td>
+                      </tr>
+                      <tr>
+                        <td><b>State  <span class="red">*</span></b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txtState" type="text" class="triple-length" id="txtState" size="20" maxlength="20" /></td>
+                      </tr>
+                      <tr>
+                        <td><b>Country  <span class="red">*</span></b></td>
+                        <td width="10"><b>:</b></td>
+                        <td>
+                        <select id="txtCountry" name="txtCountry" class="triple-length">
+                              <option value="0" selected="selected">Select Country / Region</option>
+                              <option value="Algeria">Algeria</option>
+                              <option value="Argentina">Argentina</option>
+                              <option value="Australia">Australia</option>
+                              <option value="Austria">Austria</option>
+                              <option value="Belgium">Belgium</option>
+                              <option value="Brazil">Brazil</option>
+                              <option value="Canada">Canada</option>
+                              <option value="Chile">Chile</option>
+                              <option value="China (Group)">China (Group)</option>
+                              <option value="China (Electronics)">China (Electronics)</option>
+                              <option value="Colombia">Colombia</option>
+                              <option value="Czech">Czech</option>
+                              <option value="Denmark">Denmark</option>
+                              <option value="Estonia">Estonia</option>
+                              <option value="Europe">Europe</option>
+                              <option value="Finland">Finland</option>
+                              <option value="France">France</option>
+                              <option value="Germany">Germany</option>
+                              <option value="Hong Kong">Hong Kong</option>
+                              <option value="Hungary">Hungary</option>
+                              <option value="India">India</option>
+                              <option value="Indonesia">Indonesia</option>
+                              <option value="Italy">Italy</option>
+                              <option value="Japan">Japan</option>
+                              <option value="Kazakhstan">Kazakhstan</option>
+                              <option value="Korea (Group)">Korea (Group)</option>
+                              <option value="Korea (Electronics)">Korea (Electronics)</option>
+                              <option value="Latvia">Latvia</option>
+                              <option value="Lithuania">Lithuania</option>
+                              <option value="Malaysia">Malaysia</option>
+                              <option value="Mexico">Mexico</option>
+                              <option value="Middle East">Middle East</option>
+                              <option value="Netherlands">Netherlands</option>
+                              <option value="Panama">Panama</option>
+                              <option value="Peru">Peru</option>
+                              <option value="Philippines">Philippines</option>
+                              <option value="Poland">Poland</option>
+                              <option value="Portugal">Portugal</option>
+                              <option value="Russia">Russia</option>
+                              <option value="Singapore">Singapore</option>
+                              <option value="Slovakia">Slovakia</option>
+                              <option value="Slovakia">Slovakia</option>
+                              <option value="Spain">Spain</option>
+                              <option value="Sweden">Sweden</option>
+                              <option value="Taiwan">Taiwan</option>
+                              <option value="Thailand">Thailand</option>
+                              <option value="Turkey">Turkey</option>
+                              <option value="United States">United States</option>
+                              <option value="Ukraine">Ukraine</option>
+                              <option value="Uzbekistan">Uzbekistan</option>
+                              <option value="Vietnam">Vietnam</option>
+                          </select></td>
+                      </tr>
+                      <tr>
+                        <td><b>Mobile  <span class="red">*</span></b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txtMobile" type="text" class="triple-length" id="txtMobile" /></td>
+                      </tr>
+                      <tr>
+                        <td><b>Telephone</b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txtTelephone" type="text" class="triple-length" id="txtTelephone" required /></td>
+                      </tr>
+                      
+                      <tr>
+                        <td><b>Email  <span class="red">*</span></b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><input name="txteMailid" type="text" class="triple-length" id="txteMailid" /></td>
+                      </tr>
+                      <tr>
+                        <td valign="top"><b>Comments  <span class="red">*</span></b></td>
+                        <td width="10" valign="top"><b>:</b></td>
+                        <td valign="top"><textarea name="txtComments" rows="4" cols="2" class="triple-length" id="txtComments"></textarea></td>
+                      </tr>
+                      <tr>
+                        <td><b>Enter the code <span class="red">*</span></b></td>
+                        <td width="10"><b>:</b></td>
+                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td width="50"><canvas id="myCanvas" width="100" height="30" style="background-color: beige;">{{img}}</canvas></td>
+                            <td>  &nbsp;&nbsp;</td>  
+                            <td><input type="text" id="txtcaptcha" name="txtcaptcha" class="width_01" /></td>
+                          </tr>
+                          
+                          
+                        </table></td>
+                      </tr>
+                      <tr>
+                        <td>&nbsp;</td>
+                        <td width="10">&nbsp;</td>
+                        <td>
+                        	<input name="Submit2" style="width: 250px;" type="submit" id="Submit2" value="Send" />&nbsp;
+                          	<input name="Submit22" style="width: 250px;" type="reset" id="Submit22" value="Reset" />
+                         </td>
+                      </tr>
+                  </table>
+                  </form>
+                  	</div>
+				</div>
+            </td>
+            <td width="290" valign="top" class="pro_list bor_03 last">
+            	<div class="fr pro_list">
+                	<h2>Our <span>Product</span></h2>
+                        <ul class="list_02">
+                            {% for category in cat %}
+                        	<li><a href="{% url 'categoryview' category.id %}">{{ category.CategoryName }}</a></li>
+                        	{% endfor %}
+                		</ul>
+            	</div>
+            </td>
+          </tr>
+        </table>
+        <script>
+                    var canvas = document.getElementById("myCanvas");
+                    var ctx = canvas.getContext("2d");
+                    ctx.font = "15px Comic Sans MS";
+                    ctx.fillStyle = "red";
+                    ctx.textAlign = "center";
+                    ctx.fillText("{{img}}", canvas.width/2, canvas.height/2);
+        </script>
+   	</div>
+  {% endblock %}      
+</body>
+</html>

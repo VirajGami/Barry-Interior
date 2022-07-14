@@ -1,0 +1,202 @@
+/************************************************************************************
+   SIMPLE (FAST) CLASS 
+*************************************************************************************/
+
+.fl {
+    display: inline;
+    float: left;
+}
+
+.fr {
+    display: inline;
+    float: right;
+}
+
+.col-h {
+    width: 48%;
+}
+
+.col-h-l {
+    width: 48%;
+    float: left;
+    display: inline;
+}
+
+.col-h-r {
+    width: 48%;
+    float: right;
+    display: inline;
+}
+
+.col-twt {
+    width: 31.3%;
+}
+
+.col-tht {
+    width: 64.6%;
+}
+
+.cl {
+    clear: left;
+}
+
+.cr {
+    clear: right;
+}
+
+.cb {
+    clear: both;
+}
+
+.out {
+    position: absolute;
+    left: -5000px;
+    top: -5000px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.thin {
+    font-weight: normal;
+}
+
+.small {
+    font-size: 92%;
+}
+
+.big {
+    font-size: 117%
+}
+
+.larger {
+    font-size: 15px;
+}
+
+.center {
+    text-align: center;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {}
+
+.vcenter {
+    vertical-align: middle;
+}
+
+.break {
+    height: 1px;
+    font-size: 1px;
+    line-height: 1px;
+    clear: both;
+    overflow: hidden;
+    visibility: hidden;
+    display: block;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100%;
+}
+
+.clearfix {
+    zoom: 1;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0;
+}
+
+.contextfix {
+    zoom: 1;
+    display: table-cell;
+    *display: block;
+}
+
+.contextfix:after {
+    clear: both;
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+    height: 0 !important;
+    line-height: 0;
+    font-size: xx-large;
+    content: " x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x ";
+}
+
+.hidden {
+    display: none;
+}
+
+.sprite {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+a .sprite {
+    cursor: pointer;
+}
+
+.reset {
+    border: none;
+    margin: 0;
+    padding: 0;
+    background: none;
+    font-size: 100%;
+    line-height: 1
+}
+
+ul.reset,
+ol.reset {
+    list-style: none;
+}
+
+.reset td,
+.reset th {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: 100%;
+    line-height: 1
+}
+
+.reset li {
+    margin: 0;
+    padding: 0;
+    background: none;
+}
+
+.nobr {
+    white-space: nowrap;
+}
+
+.nomb {
+    margin-bottom: 0 !important;
+}
+
+.pre {
+    white-space: pre;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.u {
+    text-decoration: underline;
+}
+
+.red {
+    color: #d11f28;
+}

@@ -1,0 +1,36 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+ 
+<body>
+  {% block body %}
+  <div id="main" class="row row-main">
+	<div class="bradscrumb">
+        <ul class="list_03">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'productpage' %}">Products</a></li>
+            <li><a href="{% url 'categoryview' c.id %}" class="active">{{ subcategoryvalue.Category}}</a></li>
+            <li><a href="{% url 'productlist' subcategoryvalue.id %}" class="active">{{ subcategoryvalue.SubCategoryName }}</a></li>
+        </ul>
+        <div class="clear"></div>
+	</div>
+  <div class="our_product">
+    <h2> <span>{{ subcategoryvalue.SubCategoryName }}</span></h2>
+   
+    <div class="pro_thumb">
+        <ul>
+            {% for product in product_list %}
+            <li><a href="{% url 'productdetail' product.id %}"><img src="{{ product.ProductImage.url }}" width="184 px" height="115 px" alt=""><b>Model : {{ product.ModelNo }}</b></a></li>
+            {% endfor %}
+        </ul>
+        <div class="clear"></div>
+    </div>
+   </div>
+  {% endblock %}      
+</body>
+</html>

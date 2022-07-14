@@ -1,0 +1,72 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+
+<body>
+  {% block body %}
+   
+
+  <div id="main" class="row row-main">
+	<div class="bradscrumb">
+        <ul class="list_03">
+            <li><a href="{% url 'index' %}">Home</a></li>
+            <li><a href="{% url 'contact' %}" class="active">Contact Us</a></li>
+        </ul>
+        <div class="clear"></div>
+	</div>
+    <div class="our_product">
+   	    <div class="table-wrap"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tbody><tr>
+            <td valign="top" class="first">
+            	<div class="who_we_are">
+               	  <h2>Contact <span>Us</span></h2>
+                  <div class="pad_05">
+                  <div class="table-wrap"><table width="100%" border="0" cellspacing="0" cellpadding="3">
+                      <tbody><tr class="even">
+                        <td width="50" valign="top" class="first"><b>Address</b></td>
+                        <td width="10" valign="top"><b>:</b></td>
+                        <td valign="top" class="last"><b>Barry Interior</b><br>
+	                Rasul Para, Opp. Old Toll Tax, NH-8B, Rajkot,<br>
+    	            Gujarat (INDIA)</td>
+                      </tr>
+                      <tr class="even">
+                        <td width="50" valign="top" class="first"><b>Mobile</b></td>
+                        <td width="10" valign="top"><b>:</b></td>
+                        <td valign="top" class="last">+91 97270 55270
+                          </td>
+                      </tr>
+                      <tr class="even">
+                        <td width="50" valign="top" class="first"><b>Email</b></td>
+                        <td width="10" valign="top"><b>:</b></td>
+                        <td valign="top" class="link last"><a href="mailto:sales@barryinterior.com">barryinterior@gmail.com</a></td>
+                      </tr>
+                      <tr class="even">
+                        <td width="50" valign="top" class="first"><b>Web</b></td>
+                        <td width="10" valign="top"><b>:</b></td>
+                        <td valign="top" class="link last"><a href="http://www.barryinterior.com/" target="_blank">www.barryinterior.com</a></td>
+                      </tr>
+                    </tbody></table><span class="cor cor-tl"></span><span class="cor cor-tr"></span><span class="cor cor-bl"></span><span class="cor cor-br"></span></div>
+                  </div>
+       	    </div></td>
+               <td width="290" valign="top" class="pro_list bor_03 last">
+            	<div class="fr pro_list">
+                	<h2>Our <span>Product</span></h2>
+                        <ul class="list_02">
+                            {% for category in cat %}
+                        	<li><a href="{% url 'categoryview' category.id %}">{{ category.CategoryName }}</a></li>
+                        	{% endfor %}
+                		</ul>
+            	</div>
+            </td>
+          </tr>
+        </tbody></table><span class="cor cor-tl"></span><span class="cor cor-tr"></span><span class="cor cor-bl"></span><span class="cor cor-br"></span></div>
+   	</div>
+
+  {% endblock %}      
+</body>
+</html>

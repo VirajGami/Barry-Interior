@@ -1,0 +1,55 @@
+{% extends 'barryinterior/base.html' %}
+{% load static %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+{% block head %}
+{% endblock %}
+</head>
+
+<body>
+  {% block body %}
+  
+  <div id="main" class="row row-main">
+    <!-- <div class="our_product">
+        <h2>Our <span>Products</span></h2>
+        <div class="pro_thumb">
+            <ul>
+              {% for category in cat_list%}
+                <li><a href="{% url 'categoryview' category.id %}"><img src="{{ category.Image.url }}" width="230 px" height="135 px" alt="" /><b>{{ category.CategoryName }}</b></a></li>
+              {% endfor %}
+            </ul>
+            <div class="clear"></div>
+        </div>
+        
+    </div> -->
+
+    <div class="our_product">
+      <h2>Our <span>Products</span></h2>
+   
+      <div class="pad_04">
+          
+  &nbsp;          
+    <div id="pro_slider">
+  <div class=" jcarousel-skin-tango-01"><div class="jcarousel-container jcarousel-container-horizontal" style="display: block;"><div class="jcarousel-prev jcarousel-prev-horizontal" disabled="false" style="display: block;"><span style="color: white;font-size: 20px;padding-left: 3px;"><</span></div><div class="jcarousel-next jcarousel-next-horizontal" disabled="false" style="display: block;"><span style="color: white;font-size: 20px;padding-left: 3px;">></span></div><div class="jcarousel-clip jcarousel-clip-horizontal"><ul id="mycarousel_01" class="jcarousel-list jcarousel-list-horizontal">
+    {% for category in cat_list%}
+          
+      <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal" jcarouselindex="1" style=""><a href="{% url 'categoryview' category.id %}"><img src="{{ category.Image.url }}" width="184 px" height="115 px" alt=""><b>{{ category.CategoryName }}</b></a></li>
+          {% endfor %}
+  </ul></div></div></div>
+  <div class="clear"></div>
+</div>        </div>
+  </div>
+    <!-- Start: Bottom Boxes -->
+        
+    
+<div class="bottom-boxes">
+    <div class="latest_products"><a href="{% url 'latest' %}" >Latest Products</a></div>
+    <div class="request_a_quote"><a href="{% url 'inquiry' %}">Request A Quote</a></div>
+    <div class="photo_gallery"><a href="{% url 'photogallery' %}">New Arrival</a></div>
+<div class="clear"></div>
+</div>        <!-- End: Bottom Boxes -->
+       <!-- End: Bottom Boxes -->
+  {% endblock %}      
+</body>
+</html>
